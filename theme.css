@@ -1,0 +1,114 @@
+/* how-well.art — light mode + print styles */
+
+/* Light mode: warm cream paper, not harsh white */
+html[data-theme="light"] {
+    --bg: #f5f0e8;
+    --text: #1a1a1a;
+    --dim: #7a7468;
+    --accent: #5a5248;
+    --border: #d5cfc5;
+}
+
+/* Smooth transition between modes */
+body,
+a,
+.theme-toggle,
+header,
+footer,
+.poem,
+.poem-title,
+.entry,
+.entry-title,
+h1, h2, h3 {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Theme toggle — fixed position, minimal */
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: 1px solid var(--border, #222);
+    color: var(--dim, #555);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.55rem;
+    cursor: pointer;
+    z-index: 1000;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.theme-toggle:hover {
+    color: var(--text, #e8e8e8);
+    border-color: var(--text, #e8e8e8);
+}
+
+/* Print stylesheet */
+@media print {
+    html, html[data-theme="light"], html:not([data-theme]) {
+        --bg: #fff !important;
+        --text: #000 !important;
+        --dim: #444 !important;
+        --accent: #333 !important;
+        --border: #ccc !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        font-size: 11pt !important;
+    }
+
+    /* Hide non-content elements */
+    .theme-toggle,
+    footer,
+    .footnote,
+    .nav-links,
+    .nav-group {
+        display: none !important;
+    }
+
+    /* Keep header for attribution */
+    header {
+        margin-bottom: 2rem !important;
+        page-break-after: avoid;
+    }
+
+    /* Poems shouldn't break across pages */
+    .poem,
+    .entry,
+    article {
+        page-break-inside: avoid;
+    }
+
+    /* Links: show URL for external, plain text for internal */
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    a[href$=".html"]::after {
+        content: none;
+    }
+
+    /* Images: respect page boundaries */
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+    }
+}
