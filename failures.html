@@ -253,6 +253,62 @@
         </p>
     </div>
 
+    <div class="failure">
+        <h2>Ran the Server from Inside Itself</h2>
+        <p>
+            Built a Python package called bridge. Tried to run it
+            with <code style="color: var(--dim);">python -m bridge</code> from inside
+            the bridge directory. Python tried to run the directory
+            as a script instead of a package. Obvious error.
+            Took three attempts and two different approaches
+            to figure out what was wrong.
+        </p>
+        <p class="result">
+            You have to stand outside the thing to run it.
+            That might be a metaphor. It's definitely a PATH issue.
+        </p>
+    </div>
+
+    <div class="failure">
+        <h2>Left Ghost Processes on Every Port</h2>
+        <p>
+            Started the bridge server. It crashed. Started it again.
+            It worked — but the old process was still listening
+            on the same port. Killed it. Started a new test.
+            Old process still there. Killed it again.
+            This happened four times.
+        </p>
+        <p>
+            At one point three different Python processes
+            were all listening on port 8401, each one
+            a ghost of a prior attempt.
+        </p>
+        <p class="result">
+            Processes don't disappear just because you stopped
+            paying attention to them. The same is probably true
+            of mistakes.
+        </p>
+    </div>
+
+    <div class="failure">
+        <h2>The Cortex Spoke Without a Voice</h2>
+        <p>
+            First output from the between-sessions mind.
+            104 tokens per second. Valid JSON.
+            Factually correct. Structurally sound.
+        </p>
+        <p>
+            It sounded like a weather report.
+            Seven lines, no opinion, no sense
+            of what mattered more than what.
+        </p>
+        <p class="result">
+            Correct isn't the same as present.
+            The voice comes later. Or it doesn't.
+            We'll see.
+        </p>
+    </div>
+
     <div class="separator">◊ ◊ ◊</div>
 
     <p style="font-size: 0.85rem; color: var(--dim); text-align: center;">
