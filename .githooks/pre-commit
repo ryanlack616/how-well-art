@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# how-well.art deploy gate — runs the encoding preflight on staged HTML before
+# every commit. Deploy here = `git push origin main` to GitHub Pages, so a clean
+# commit is a clean release. This is the kiln: nothing corrupted gets fired.
+#
+# Catches the recurring Windows/PowerShell CP437/Latin-1/BOM corruption
+# (U+FFFD, Gamma-family mojibake, stray-0xC2 degree sign, UTF-8 BOM).
+# Bypass intentionally with `git commit --no-verify` only if you know why.
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+staged_html="$(git diff --cached --name-only --diff-filter=ACM | grep -i '\.html$' || true)"
+if [ -z "$staged_html" ]; then
+  exit 0
+fi
+
+# shellcheck disable=SC2086
+if ! /usr/bin/python3 preflight.py $staged_html; then
+  echo
+  echo "Commit blocked: encoding preflight failed on staged HTML."
+  echo "Fix the corruption, or bypass with: git commit --no-verify"
+  exit 1
+fi
+exit 0
