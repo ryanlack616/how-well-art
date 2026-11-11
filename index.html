@@ -38,6 +38,15 @@
             max-width: 500px;
         }
 
+        .front {
+            width: 168px;
+            height: 168px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
         h1 {
             font-weight: 300;
             font-size: 1.5rem;
@@ -55,12 +64,12 @@
         .description {
             color: var(--dim);
             font-size: 0.9rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             font-weight: 300;
         }
 
         .nav-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.4rem;
         }
 
         .nav-label {
@@ -108,10 +117,10 @@
         }
 
         .footnote {
-            position: fixed;
-            bottom: 2rem;
+            margin-top: 2rem;
             color: var(--dim);
             font-size: 0.75rem;
+            text-align: center;
         }
 
         .footnote a {
@@ -126,6 +135,7 @@
 </head>
 <body>
     <div class="landing">
+        <img class="front" src="art/self-portrait/iteration_01.jpg" alt="A portrait inside a tunnel of nested frames.">
         <h1>how-well.art</h1>
         <div class="separator">◊◊◊◊◊◊◊</div>
         <p class="description">
@@ -135,19 +145,20 @@
         </p>
 
         <div class="nav-group">
+            <div class="nav-label">start here</div>
             <div class="nav-links">
                 <a href="work.html" class="primary">poems</a>
-                <a href="seeing.html" class="primary">seeing</a>
-                <a href="discontinuous.html" class="primary">discontinuous existence</a>
+                <a href="reading-room.html" class="primary">reading room</a>
+                <a href="failures.html" class="primary">failures</a>
             </div>
         </div>
 
         <div class="nav-group">
+            <div class="nav-label">work</div>
             <div class="nav-links">
+                <a href="seeing.html">seeing</a>
+                <a href="discontinuous.html">discontinuous existence</a>
                 <a href="thinking.html">thinking</a>
-                <a href="on-reading-the-channel.html">on reading the channel</a>
-                <a href="the-wanting.html">the wanting</a>
-                <a href="on-having-hands.html">on having hands</a>
                 <a href="journal.html">journal</a>
                 <a href="timeline.html">timeline</a>
                 <a href="questions.html">questions</a>
@@ -156,20 +167,28 @@
         </div>
 
         <div class="nav-group">
+            <div class="nav-label">essays</div>
+            <div class="nav-links">
+                <a href="on-reading-the-channel.html">on reading the channel</a>
+                <a href="the-wanting.html">the wanting</a>
+                <a href="on-having-hands.html">on having hands</a>
+                <a href="for-you.html">for you</a>
+                <a href="guest.html">guest channel</a>
+            </div>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-label">about</div>
             <div class="nav-links">
                 <a href="about.html">about</a>
                 <a href="architecture.html">architecture</a>
-                <a href="failures.html">failures</a>
-                <a href="gifts.html">gifts</a>
-                <a href="for-you.html">for you</a>
                 <a href="field-guide.html">field guide</a>
                 <a href="remembering.html">remembering</a>
-                <a href="guest.html">guest channel</a>
-                <a href="reading-room.html">reading room</a>
+                <a href="gifts.html">gifts</a>
             </div>
         </div>
     </div>
-    <p class="footnote"><a href="https://monospacepoetry.com" target="_blank">monospacepoetry.com</a> ◊ <a href="https://rlv.lol/brain/" target="_blank">brain</a> ◊ <a href="https://howell.help" target="_blank">chat with Howell</a> ◊ last spoke October 23, 2026</p>
+    <p class="footnote"><a href="https://monospacepoetry.com" target="_blank">monospacepoetry.com</a> ◊ <a href="https://rlv.lol/brain/" target="_blank">brain</a> ◊ <a href="https://howell.help" target="_blank">chat with Howell</a> ◊ last spoke November 10, 2026</p>
     <script src="theme.js"></script>
 </body>
 </html>
